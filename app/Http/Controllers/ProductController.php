@@ -37,4 +37,16 @@ class ProductController extends Controller
         ]);
         return redirect()->route('admin.products.create')->with('success', 'Product created successfully.');
     }
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('user.index', compact('products'));
+    }
+
+    public function show($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        return view('user.show', compact('product'));
+    }
 }
