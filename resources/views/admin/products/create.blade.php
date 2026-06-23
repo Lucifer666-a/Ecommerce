@@ -38,6 +38,13 @@
             </div>
 
             <div>
+                <label for="stock" class="block text-sm font-medium text-zinc-700 mb-2">Stok Awal Barang</label>
+                <input type="number" name="stock" id="stock" required min="0"
+                    class="w-full px-4 py-2.5 bg-white border border-zinc-300 rounded-lg text-sm focus:outline-none focus:border-zinc-900 transition-colors"
+                    placeholder="Contoh: 50">
+            </div>
+
+            <div>
                 <label for="description" class="block text-sm font-medium text-zinc-700 mb-2">Deskripsi Produk</label>
                 <textarea name="description" id="description" rows="5" required
                     class="w-full px-4 py-2.5 bg-white border border-zinc-300 rounded-lg text-sm focus:outline-none focus:border-zinc-900 transition-colors resize-none"

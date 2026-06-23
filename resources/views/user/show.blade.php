@@ -42,7 +42,9 @@
                     <p class="mt-4 text-2xl font-extrabold text-zinc-950">
                         Rp {{ number_format($product->price, 0, ',', '.') }}
                     </p>
-                    
+                    <p class="mt-2 text-lg font-semibold text-zinc-900">
+                        Stok Tersedia: <span class="font-semibold text-zinc-900">{{ $product->stock }}</span>
+                    </p>
                     <hr class="my-6 border-zinc-100">
 
                     <h3 class="text-sm font-semibold text-zinc-900 mb-2">Deskripsi Produk</h3>
