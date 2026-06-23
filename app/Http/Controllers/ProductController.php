@@ -64,9 +64,15 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = null;
+        $imageName = $product->image;
+
         if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
+
+            if($product->image && File::exists(public_path('images/' . $product->image))) {
+                File::delete(public_path('images/' . $product->image));
+            }
+
+            $imageName = time(). '.' . $request->image->extension();
             $request->image->move(public_path('images'), $imageName);
         }
 
