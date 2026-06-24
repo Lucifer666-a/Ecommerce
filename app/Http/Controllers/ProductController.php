@@ -100,6 +100,29 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
 
+        public function index(Request $request)
+    {
+        $search = $request->input('search');
+        $query = Product::query();
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%')
+                  ->orWhere('description', 'like', '%' . $search . '%');
+            });
+        }
+
+        $products = $query->get();
+        return view('user.index', compact('products', 'search'));
+    
+    }
+
+    public function show($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        return view('user.show', compact('product'));
+    }
+
     public function viewCart()
     {
         $cart = session()->get('cart', []);
@@ -149,8 +172,8 @@ class ProductController extends Controller
         }
         return redirect()->route('cart.view')->with('success', 'Product removed from cart successfully!');
     }
-
-    public function checkout(Request $request)
+    
+    public function checkoutView()
     {
         $cart = session()->get('cart', []);
 
@@ -165,6 +188,23 @@ class ProductController extends Controller
             }
         }
 
+        return view('user.checkout', compact('cart'));
+    }
+        
+    public function processCheckout(Request $request)
+    {
+        $cart = session()->get('cart', []);
+
+        if(empty($cart)) {
+            return redirect()->route('cart.view')->with('error', 'Your cart is empty!');
+        }
+
+        $request->validate([
+            'customer_name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone' => 'required|numeric',
+        ]);
+
         foreach($cart as $id => $details) {
             $product = Product::find($id);
             $product->decrement('stock', $details['quantity']);
@@ -176,15 +216,22 @@ class ProductController extends Controller
 
     }
 
-    public function index()
+    public function buyNow($id)
     {
-        $products = Product::all();
-        return view('user.index', compact('products'));
+        $product = Product::findOrFail($id);
+        session()->forget('cart');
+
+        $cart = [
+            $id => [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image,
+                "max_stock" => $product->stock,
+            ]
+        ];
+        session()->put('cart', $cart);
+        return redirect()->route('cart.checkout.view');
     }
 
-    public function show($slug)
-    {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        return view('user.show', compact('product'));
-    }
 }

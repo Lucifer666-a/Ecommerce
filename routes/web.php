@@ -28,4 +28,10 @@ Route::delete('/cart/remove/{id}', [ProductController::class, 'removeFromCart'])
 
 Route::post('/checkout', [ProductController::class, 'checkout'])->name('cart.checkout');
 
+Route::get('/checkout', [ProductController::class, 'checkoutView'])->name('cart.checkout.view');
+
+Route::post('/checkout/process', [ProductController::class, 'processCheckout'])->name('cart.checkout.process');
+
+Route::post('/products/buy-now/{id}', [ProductController::class, 'buyNow'])->name('products.buy_now');
+
 Route::redirect('/', '/products');

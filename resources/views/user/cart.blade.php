@@ -71,12 +71,10 @@
                         <p class="text-2xl font-black text-zinc-950 mt-1">Rp {{ number_format($total, 0, ',', '.') }}</p>
                     </div>
                     
-                    <form action="{{ route('cart.checkout') }}" method="POST" class="w-full sm:w-auto">
-                        @csrf
-                        <button type="submit" class="w-full sm:w-auto bg-zinc-950 hover:bg-zinc-800 text-white font-medium py-3 px-8 rounded-xl text-sm transition-colors cursor-pointer shadow-sm">
-                            Lakukan Checkout Sekarang &larr;
-                        </button>
-                    </form>
+                    <a href="{{ route('cart.checkout.view') }}" 
+                        class="w-full sm:w-auto text-center bg-zinc-950 hover:bg-zinc-800 text-white font-medium py-3 px-8 rounded-xl text-sm transition-colors cursor-pointer shadow-sm">
+                        Lakukan Checkout Sekarang &larr;
+                    </a>
                 </div>
             </div>
         @else

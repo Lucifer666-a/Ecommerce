@@ -54,12 +54,19 @@
                 </div>
 
                 <div class="space-y-3 pt-6">
-                    <button class="w-full bg-zinc-950 text-white font-medium py-3.5 rounded-xl hover:bg-zinc-800 transition-colors cursor-pointer shadow-sm text-sm">
-                        Beli Sekarang (Buy Now)
-                    </button>
-                    <button class="w-full border border-zinc-300 text-zinc-800 font-medium py-3.5 rounded-xl hover:bg-zinc-50 transition-colors cursor-pointer text-sm">
-                        Masukkan Keranjang (Add to Cart)
-                    </button>
+                   <form action="{{ route('products.buy_now', $product->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="w-full bg-zinc-950 text-white font-medium py-3.5 rounded-xl hover:bg-zinc-800 transition-colors cursor-pointer shadow-sm text-sm text-center">
+                            Beli Sekarang (Buy Now)
+                        </button>
+                    </form>
+                    
+                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="w-full border border-zinc-300 text-zinc-800 font-medium py-3.5 rounded-xl hover:bg-zinc-50 transition-colors cursor-pointer text-sm text-center">
+                            Masukkan Keranjang (Add to Cart)
+                        </button>
+                    </form>
                 </div>
             </div>
 
