@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -205,10 +206,34 @@ class ProductController extends Controller
             'phone' => 'required|numeric',
         ]);
 
+        $totalPrice = 0;
+        $orderItems = [];
+
         foreach($cart as $id => $details) {
             $product = Product::find($id);
+
+            if(!$product || $product->stock < $details['quantity']) {
+                return redirect()->route('cart.view')->with('error', "Product {$details['name']} is out of stock or does not have enough quantity.");
+            }
+        
+            $totalPrice += $details['price'] * $details['quantity'];
+
+            $orderItems[] = [
+            'name' => $details['name'],
+            'quantity' => $details['quantity'],
+            'price' => $details['price'],
+            ];
+
             $product->decrement('stock', $details['quantity']);
         }
+
+        Order::create([
+            'customer_name' => $request->customer_name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'total_price' => $totalPrice,
+            'items' => json_encode($orderItems)
+        ]);
 
         session()->forget('cart');
 
@@ -234,4 +259,9 @@ class ProductController extends Controller
         return redirect()->route('cart.checkout.view');
     }
 
+    public function adminOrders()
+    {
+        $orders = Order::orderBy('created_at', 'desc')->get();
+        return view('admin.orders.index', compact('orders'));
+    }
 }

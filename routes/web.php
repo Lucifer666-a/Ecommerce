@@ -34,4 +34,6 @@ Route::post('/checkout/process', [ProductController::class, 'processCheckout'])-
 
 Route::post('/products/buy-now/{id}', [ProductController::class, 'buyNow'])->name('products.buy_now');
 
+Route::get('/admin/orders', [ProductController::class, 'adminOrders'])->name('admin.orders.index');
+
 Route::redirect('/', '/products');
