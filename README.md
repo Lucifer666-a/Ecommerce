@@ -3,8 +3,7 @@
 Stuffus adalah aplikasi platform e-commerce (toko online) modern yang dirancang dengan antarmuka minimalis namun memiliki fitur manajemen inventaris dan transaksi yang kuat. Aplikasi ini ditujukan untuk mempermudah operasional pemilik toko (Admin) dalam mengelola katalog produk serta memantau pesanan masuk secara real-time dari pelanggan.
 
 ## 📺 Video Demo Aplikasi
-[![Tonton Video Demo](https://img.shields.io/badge/YouTube-Video%20Demo-red?style=for-the-badge&logo=youtube)](TARUH_LINK_VIDEO_YOUTUBE_ATAU_LOOM_DI_SINI)
-*Klik badge di atas untuk melihat demonstrasi alur fitur lengkap dari sisi User maupun Admin.*
+[![Tonton Video Demo](https://img.shields.io/badge/YouTube-Video%20Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/dQw4w9WgXcQ?si=hvBPGKURUmxaVByf)
 
 ## 🚀 Fitur Utama
 
