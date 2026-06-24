@@ -1,49 +1,65 @@
+Berikut adalah versi Bahasa Inggris penuh dari file `README.md` kamu. Strukturnya tetap dipertahankan agar terlihat profesional, rapi, dan siap dibaca oleh rekruter global di GitHub.
+
+---
+
+
 # Stuffus - Minimalist E-Commerce Platform
 
-Stuffus adalah aplikasi platform e-commerce (toko online) modern yang dirancang dengan antarmuka minimalis namun memiliki fitur manajemen inventaris dan transaksi yang kuat. Aplikasi ini ditujukan untuk mempermudah operasional pemilik toko (Admin) dalam mengelola katalog produk serta memantau pesanan masuk secara real-time dari pelanggan.
+Stuffus is a modern e-commerce platform designed with a minimalist user interface and backed by robust inventory and transaction management features. This application aims to streamline operations for store owners (Admin) in managing product catalogs and tracking real-time incoming customer orders.
 
-## 📺 Video Demo Aplikasi
-[![Tonton Video Demo](https://img.shields.io/badge/YouTube-Video%20Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/dQw4w9WgXcQ?si=hvBPGKURUmxaVByf)
+---
 
-## 🚀 Fitur Utama
+## 📺 Application Demo Video
+[![Watch Demo Video](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/dQw4w9WgXcQ?si=hvBPGKURUmxaVByf)
 
-### 🛒 Sisi Pelanggan (User Interface)
-* **Pencarian Produk Interaktif:** Memudahkan pengguna menyaring produk impian berdasarkan kecocokan nama dan deskripsi produk secara instan.
-* **Sistem Keranjang Belanja Kilat:** Fitur penambahan produk ke keranjang belanja (Add to Cart) berbasis session yang stabil.
-* **Instan Checkout (Buy Now):** Alur transaksi super cepat untuk membeli produk tunggal tanpa harus melewati antrean keranjang.
-* **Proteksi Pengisian Alamat:** Validasi formulir pengiriman (Nama, No. Telepon, Alamat) sebelum pesanan diproses oleh sistem.
+---
 
-### 💼 Sisi Pemilik Toko (Admin Panel)
-* **Portal Utama Kendali Kontrol (`/admin`):** Halaman Hub pusat navigasi yang bersih untuk mengarahkan Admin ke manajemen produk atau laporan penjualan.
-* **Autentikasi Keamanan Kustom (Middleware):** Mengunci seluruh rute dapur operasional admin sehingga hanya akun dengan peran `admin` yang diizinkan masuk.
-* **CRUD Manajemen Produk Lengkap:** Fitur menambah produk baru, mengunggah gambar, mengubah harga, mengedit detail, hingga menghapus item dari katalog.
-* **Pengaman Stok Otomatis (Race Condition Protection):** Sistem pengecekan stok berlapis (*double-validation*) sebelum checkout untuk mencegah stok minus akibat dibeli bersamaan.
-* **Riwayat Transaksi Digital (Order History):** Buku nota digital otomatis di database yang mencatat detail pembeli, alamat, produk yang dipesan, waktu presisi, dan total omset pendapatan.
+## 🚀 Key Features
+
+### 🛒 Customer Side (User Interface)
+* **Interactive Product Search:** Allows users to filter their desired products instantly based on matching names and descriptions.
+* **Instant Shopping Cart System:** A stable, session-based cart system for adding products ("Add to Cart") seamlessly.
+* **Direct Checkout (Buy Now):** A lightning-fast transaction workflow for purchasing a single product without going through the cart queue.
+* **Shipping Address Validation:** Protects order integrity by validating shipping forms (Name, Phone Number, Address) before the order is processed.
+
+### 💼 Store Owner Side (Admin Panel)
+* **Centralized Dashboard Hub (`/admin`):** A clean central navigation portal that routes the Admin to either product management or sales reports.
+* **Custom Security Authentication (Middleware):** Locks down all back-office administrative routes, ensuring only accounts with the `admin` role can gain entry.
+* **Full Product CRUD Management:** Features for adding new products, uploading images, adjusting prices, editing details, and deleting items from the catalog.
+* **Automated Stock Protection (Race Condition Prevention):** A multi-layered stock validation (*double-validation*) process before checkout to prevent negative stock issues caused by simultaneous purchases.
+* **Digital Order History:** An automated digital ledger in the database that tracks customer details, shipping addresses, ordered items, precise transaction timestamps, and total revenue.
+
+---
 
 ## 🛠️ Tech Stack
 
-Aplikasi ini dibangun menggunakan kombinasi teknologi modern:
+This application is built using a combination of modern technologies:
 
 * **Back-End Framework:** Laravel 11
 * **Database Management:** MySQL (Eloquent ORM & Migrations)
-* **Front-End Styling:** Tailwind CSS v4 (Desain Minimalis Monokrom)
-* **Environment Tool:** Laravel Tinker (Manajemen Akun Administratif)
+* **Front-End Styling:** Tailwind CSS v4 (Minimalist Monochrome Design)
+* **Environment Tool:** Laravel Tinker (Administrative Account Management)
 
-## 📦 Cara Menjalankan Proyek di Lokal
+---
 
-1. **Clone Repositori:**
+## 📦 Local Installation Guide
+
+1. **Clone the Repository:**
+```bash
    git clone [https://github.com/Lucifer666-a/Ecommerce.git](https://github.com/Lucifer666-a/Ecommerce.git)
    cd Ecommerce
 
-2. **Instalasi Dependensi Dependencies:**
+```
+
+2. **Install Dependencies:**
 
 ```bash
    composer install
 
 ```
 
-3. **Konfigurasi Environment:**
-Salin file `.env.example` menjadi `.env` lalu sesuaikan konfigurasi database MySQL Anda.
+3. **Configure Environment:**
+Copy the `.env.example` file to `.env` and set up your MySQL database credentials.
 
 ```bash
    cp .env.example .env
@@ -51,37 +67,37 @@ Salin file `.env.example` menjadi `.env` lalu sesuaikan konfigurasi database MyS
 
 ```
 
-4. **Migrasi Database:**
+4. **Run Database Migrations:**
 
 ```bash
    php artisan migrate
 
 ```
 
-5. **Membuat Akun Admin Perdana (Via Tinker):**
+5. **Create the Initial Admin Account (Via Tinker):**
 
 ```bash
    php artisan tinker
 
 ```
 
-Di dalam shell Tinker, jalankan:
+Inside the Tinker shell, execute:
 
 ```php
    \App\Models\User::create(['name' => 'Admin Pro', 'email' => 'admin@stuffus.com', 'password' => bcrypt('password123'), 'role' => 'admin']);
 
 ```
 
-Ketik `exit` untuk keluar.
+Type `exit` to quit Tinker.
 
-6. **Jalankan Aplikasi:**
+6. **Launch the Application:**
 
 ```bash
    php artisan serve
 
 ```
 
-Buka `http://127.0.0.1:8000` di browser Anda.
+Open `http://127.0.0.1:8000` in your preferred web browser.
 
 ---
 
