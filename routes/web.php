@@ -18,4 +18,14 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
 
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
+
+Route::post('/cart/add/{id}', [ProductController::class, 'addToCart'])->name('cart.add');
+
+Route::post('/cart/update/{id}', [ProductController::class, 'updateCart'])->name('cart.update');
+
+Route::delete('/cart/remove/{id}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
+
+Route::post('/checkout', [ProductController::class, 'checkout'])->name('cart.checkout');
+
 Route::redirect('/', '/products');

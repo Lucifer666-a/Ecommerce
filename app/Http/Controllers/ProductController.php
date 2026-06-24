@@ -100,6 +100,82 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
 
+    public function viewCart()
+    {
+        $cart = session()->get('cart', []);
+        return view('user.cart', compact('cart'));
+    }
+
+    public function addToCart(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image,
+                "max_stock" => $product->stock,
+
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->route('cart.view')->with('success', 'Product added to cart successfully!');
+    }
+
+    public function updateCart(Request $request, $id)
+    {
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+            $request->validate(['quantity' => 'required|numeric|min:1']);
+            $cart[$id]['quantity'] = $request->quantity;
+            session()->put('cart', $cart);
+        }
+        return redirect()->route('cart.view')->with('success', 'Cart updated successfully!');
+    }
+
+    public function removeFromCart($id)
+    {
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
+        return redirect()->route('cart.view')->with('success', 'Product removed from cart successfully!');
+    }
+
+    public function checkout(Request $request)
+    {
+        $cart = session()->get('cart', []);
+
+        if(empty($cart)) {
+            return redirect()->route('cart.view')->with('error', 'Your cart is empty!');
+        }
+
+        foreach($cart as $id => $details) {
+            $product = Product::find($id);
+            if(!$product || $product->stock < $details['quantity']) {
+                return redirect()->route('cart.view')->with('error', "Product {$details['name']} is out of stock or does not have enough quantity.");
+            }
+        }
+
+        foreach($cart as $id => $details) {
+            $product = Product::find($id);
+            $product->decrement('stock', $details['quantity']);
+        }
+
+        session()->forget('cart');
+
+        return redirect()->route('cart.view')->with('success', "Checkout successful! Your order has been placed.");
+
+    }
+
     public function index()
     {
         $products = Product::all();

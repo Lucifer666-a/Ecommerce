@@ -47,9 +47,13 @@
                 </div>
                 
                 <div class="mt-4 flex gap-2 relative z-10">
-                    <button class="w-1/2 border border-zinc-300 text-zinc-800 text-xs font-medium py-2 rounded-lg hover:bg-zinc-50 transition-colors cursor-pointer">
+                    <form action="{{ route('cart.add', $product->id) }}" method="POST" class="w-1/2">
+                        @csrf
+                        <button class="w-1/2 border border-zinc-300 text-zinc-800 text-xs font-medium py-2 rounded-lg hover:bg-zinc-50 transition-colors cursor-pointer">
                         Add to Cart
-                    </button>
+                        </button>
+                    </form>
+
                     <button class="w-1/2 bg-zinc-950 text-white text-xs font-medium py-2 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer">
                         Buy Now
                     </button>
