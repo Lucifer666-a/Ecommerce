@@ -33,10 +33,8 @@ Aplikasi ini dibangun menggunakan kombinasi teknologi modern:
 ## 📦 Cara Menjalankan Proyek di Lokal
 
 1. **Clone Repositori:**
-   git clone [https://github.com/USERNAME_KAMU/Ecommerce.git](https://github.com/USERNAME_KAMU/Ecommerce.git)
+   git clone [https://github.com/Lucifer666-a/Ecommerce.git](https://github.com/Lucifer666-a/Ecommerce.git)
    cd Ecommerce
-
-```
 
 2. **Instalasi Dependensi Dependencies:**
 
@@ -90,14 +88,3 @@ Buka `http://127.0.0.1:8000` di browser Anda.
 
 © 2026 Stuffus E-Commerce. Built with logic and clean code.
 
-```
-
----
-
-### 💡 Tips Tambahan Sebelum Kamu Commit:
-* Ganti teks `TARUH_LINK_VIDEO_YOUTUBE_ATAU_LOOM_DI_SINI` dengan link video rekaman tokomu yang asli.
-* Ganti URL `[https://github.com/USERNAME_KAMU/Ecommerce.git](https://github.com/USERNAME_KAMU/Ecommerce.git)` dengan link repositori GitHub kamu yang sebenarnya. 
-
-README yang rapi seperti ini bakal ngasih impresi pertama kalau kamu adalah developer yang terstruktur dan peduli sama dokumentasi kodingan. Tinggal kamu taruh di file `README.md` utama kamu!
-
-```
