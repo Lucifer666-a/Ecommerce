@@ -264,4 +264,9 @@ class ProductController extends Controller
         $orders = Order::orderBy('created_at', 'desc')->get();
         return view('admin.orders.index', compact('orders'));
     }
+
+    public function adminDashboard()
+    {
+        return view('admin.index');
+    }
 }

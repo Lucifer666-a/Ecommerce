@@ -14,7 +14,7 @@
                 <h1 class="text-2xl font-bold tracking-tight text-zinc-900">Riwayat Pesanan Masuk</h1>
                 <p class="text-sm text-zinc-500 mt-1">Daftar rekaman transaksi penjualan toko Stuffus.</p>
             </div>
-            <a href="{{ route('admin.products.index') }}" class="text-sm font-medium text-zinc-600 hover:text-zinc-950">&larr; Dashboard Utama</a>
+            <a href="{{ route('admin.index') }}" class="text-xs font-medium text-zinc-500 hover:text-zinc-950">&larr; Kembali ke Menu Utama Admin</a>
         </div>
 
         <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden shadow-sm">

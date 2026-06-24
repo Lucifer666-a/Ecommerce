@@ -1,18 +1,36 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
 
-Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
+ // -----------------------------Auth Routes-----------------------------//
+Route::get('/login', [AuthController::class, 'showlogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.process');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+ // -----------------------------Admin Routes-----------------------------//
+Route::middleware(['admin'])->group(function () {
 
-Route::put('/admin/products/{id}', [ProductController::class, 'update'])->name('admin.products.update');
+  Route::get('/admin', [ProductController::class, 'adminDashboard'])->name('admin.index');
 
-Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+  Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
 
-Route::get('/admin/products', [ProductController::class, 'adminIndex'])->name('admin.products.index');
+  Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
+
+  Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+
+  Route::put('/admin/products/{id}', [ProductController::class, 'update'])->name('admin.products.update');
+
+  Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+
+  Route::get('/admin/products', [ProductController::class, 'adminIndex'])->name('admin.products.index');
+
+  Route::get('/admin/orders', [ProductController::class, 'adminOrders'])->name('admin.orders.index');
+
+});
+
+// -----------------------------User Routes-----------------------------//
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
@@ -34,6 +52,5 @@ Route::post('/checkout/process', [ProductController::class, 'processCheckout'])-
 
 Route::post('/products/buy-now/{id}', [ProductController::class, 'buyNow'])->name('products.buy_now');
 
-Route::get('/admin/orders', [ProductController::class, 'adminOrders'])->name('admin.orders.index');
 
 Route::redirect('/', '/products');

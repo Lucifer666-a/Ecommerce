@@ -11,9 +11,10 @@
     <div class="max-w-6xl mx-auto my-12 px-4">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-zinc-200 pb-5 mb-8 gap-4">
             <div>
-                <h1 class="text-2xl font-bold tracking-tight text-zinc-900">Dashboard Admin</h1>
+                <h1 class="text-2xl font-bold tracking-tight text-zinc-900">Manajemen Produk</h1>
                 <p class="text-sm text-zinc-500 mt-1">Kelola katalog barang toko Stuffus dari satu halaman terpusat.</p>
             </div>
+            <a href="{{ route('admin.index') }}" class="text-xs font-medium text-zinc-500 hover:text-zinc-950">&larr; Kembali ke Menu Utama Admin</a>
             <a href="{{ route('admin.products.create') }}" 
                 class="bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium py-2.5 px-4 rounded-lg transition-colors shadow-sm cursor-pointer">
                 + Tambah Produk Baru
