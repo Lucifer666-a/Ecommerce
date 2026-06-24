@@ -1,8 +1,3 @@
-Berikut adalah versi Bahasa Inggris penuh dari file `README.md` kamu. Strukturnya tetap dipertahankan agar terlihat profesional, rapi, dan siap dibaca oleh rekruter global di GitHub.
-
----
-
-
 # Stuffus - Minimalist E-Commerce Platform
 
 Stuffus is a modern e-commerce platform designed with a minimalist user interface and backed by robust inventory and transaction management features. This application aims to streamline operations for store owners (Admin) in managing product catalogs and tracking real-time incoming customer orders.
