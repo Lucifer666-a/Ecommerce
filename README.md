@@ -41,7 +41,7 @@ This application is built using a combination of modern technologies:
 
 1. **Clone the Repository:**
 ```bash
-   git clone [https://github.com/Lucifer666-a/Ecommerce.git](https://github.com/Lucifer666-a/Ecommerce.git)
+   git clone https://github.com/Lucifer666-a/Ecommerce.git
    cd Ecommerce
 
 ```
