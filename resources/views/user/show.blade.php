@@ -11,9 +11,8 @@
     <nav class="border-b border-zinc-100 py-6 px-8 flex justify-between items-center max-w-7xl mx-auto">
         <span class="text-xl font-bold tracking-tight">Stuffus</span>
         <div class="space-x-6 text-sm font-medium text-zinc-600">
-            <a href="#" class="hover:text-zinc-950">Beranda</a>
+            <a href="{{ route('home') }}" class="hover:text-zinc-950">Beranda</a>
             <a href="{{ route('products.index') }}" class="text-zinc-950 underline underline-offset-4">Shop</a>
-            <a href="#" class="hover:text-zinc-950">Blog</a>
         </div>
     </nav>
 
@@ -63,7 +62,7 @@
                     
                     <form action="{{ route('cart.add', $product->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="w-full border border-zinc-300 text-zinc-800 font-medium py-3.5 rounded-xl hover:bg-zinc-50 transition-colors cursor-pointer text-sm text-center">
+                        <button type="submit" class="w-full bg-transparent hover:bg-zinc-50 text-zinc-900 border border-zinc-950 text-sm font-semibold py-3.5 rounded-xl transition-colors cursor-pointer">
                             Masukkan Keranjang (Add to Cart)
                         </button>
                     </form>

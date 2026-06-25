@@ -13,15 +13,18 @@
         <div class="space-x-6 text-sm font-medium text-zinc-600">
             <a href="{{ route('home') }}" class="hover:text-zinc-950">Beranda</a>
             <a href="{{ route('products.index') }}" class="text-zinc-950 underline underline-offset-4">Shop</a>
-            <a href="#" class="hover:text-zinc-950">Blog</a>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <div class="text-center py-16 bg-zinc-50 rounded-2xl mb-12">
-            <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 mb-4">Shop</h1>
-            <p class="text-sm text-zinc-500 tracking-wide uppercase">Give All You Need</p>
+        <div class="text-center py-20 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-950 rounded-2xl mb-12 shadow-sm">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white uppercase sm:text-5xl">
+                Shop
+            </h1>
+            <p class="mt-2 text-xs font-semibold tracking-widest text-zinc-400 uppercase">
+                Give All You Need
+            </p>
         </div>
 
         <div class="max-w-7xl mx-auto mb-8">

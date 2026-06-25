@@ -14,7 +14,6 @@
         <div class="space-x-6 text-sm font-medium text-zinc-600">
             <a href="{{ route('home') }}" class="text-zinc-950 underline underline-offset-4">Beranda</a>
             <a href="{{ route('products.index') }}" class="hover:text-zinc-950">Shop</a>
-            <a href="#" class="hover:text-zinc-950">Blog</a>
         </div>
     </nav>
 
@@ -33,9 +32,10 @@
                     Jelajahi Produk &rarr;
                 </a>
             </div>
-            <div class="hidden lg:flex justify-center items-center h-full bg-zinc-200/50 rounded-2xl overflow-hidden min-h-[350px]">
-                <!-- Placeholder Icon Estetik pengganti gambar hero utama -->
-                <span class="text-8xl select-none filter grayscale opacity-40">📦</span>
+            <div class="hidden lg:block h-[450px] rounded-3xl overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" 
+                    alt="Stuffus Hero" 
+                    class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700">
             </div>
         </div>
     </section>
