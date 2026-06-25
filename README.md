@@ -5,8 +5,7 @@ Stuffus is a modern e-commerce platform designed with a minimalist user interfac
 ---
 
 ## 📺 Application Demo Video
-[![Watch Demo Video](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/dQw4w9WgXcQ?si=hvBPGKURUmxaVByf)
-
+[![Watch Demo Video](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/ojAacy5IuLk)
 ---
 
 ## 🚀 Key Features
