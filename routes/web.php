@@ -32,7 +32,9 @@ Route::middleware(['admin'])->group(function () {
 
 // -----------------------------User Routes-----------------------------//
 
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/', [ProductController::class, 'home'])->name('home');
+
+Route::get('/shop', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
 
@@ -51,6 +53,3 @@ Route::get('/checkout', [ProductController::class, 'checkoutView'])->name('cart.
 Route::post('/checkout/process', [ProductController::class, 'processCheckout'])->name('cart.checkout.process');
 
 Route::post('/products/buy-now/{id}', [ProductController::class, 'buyNow'])->name('products.buy_now');
-
-
-Route::redirect('/', '/products');

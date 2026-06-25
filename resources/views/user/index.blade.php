@@ -11,7 +11,7 @@
     <nav class="border-b border-zinc-100 py-6 px-8 flex justify-between items-center max-w-7xl mx-auto">
         <span class="text-xl font-bold tracking-tight">Stuffus</span>
         <div class="space-x-6 text-sm font-medium text-zinc-600">
-            <a href="#" class="hover:text-zinc-950">Beranda</a>
+            <a href="{{ route('home') }}" class="hover:text-zinc-950">Beranda</a>
             <a href="{{ route('products.index') }}" class="text-zinc-950 underline underline-offset-4">Shop</a>
             <a href="#" class="hover:text-zinc-950">Blog</a>
         </div>

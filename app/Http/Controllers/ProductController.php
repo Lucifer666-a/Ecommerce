@@ -9,6 +9,13 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+
+    public function home()
+    {
+        $featuredProducts = Product::latest()->take(4)->get();
+        return view('user.home', compact('featuredProducts'));
+    }
+
     public function create()
     {
         return view('admin.products.create');
